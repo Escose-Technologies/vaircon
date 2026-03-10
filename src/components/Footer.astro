@@ -1,0 +1,98 @@
+---
+const quickLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const services = [
+  { href: '/services#repair', label: 'AC Repair' },
+  { href: '/services#installation', label: 'AC Installation' },
+  { href: '/services#shifting', label: 'AC Shifting' },
+  { href: '/services#commercial', label: 'Commercial AC' },
+  { href: '/services#amc', label: 'AMC Plans' },
+  { href: '/services#buy-sell', label: 'Buy/Sell AC' },
+];
+---
+
+<footer class="bg-deep-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-12 md:pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Brand Info -->
+      <div>
+        <a href="/" class="inline-block mb-4">
+          <img src="/images/logo.png" alt="Vishwakarma Aircon" class="h-16 w-auto" width="160" height="64" />
+        </a>
+        <p class="text-gray-400 mb-4 leading-relaxed text-sm">
+          Your trusted AC experts in Jaipur. 20+ years of experience in residential and commercial AC solutions. All brands serviced.
+        </p>
+        <p class="text-arctic-teal font-semibold text-sm">All Brands Serviced | No Quality Compromised</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-heading font-semibold text-lg mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-gray-400 hover:text-arctic-teal transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-heading font-semibold text-lg mb-4">Our Services</h4>
+        <ul class="space-y-2">
+          {services.map((link) => (
+            <li>
+              <a href={link.href} class="text-gray-400 hover:text-arctic-teal transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="font-heading font-semibold text-lg mb-4">Contact Us</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:9928731910" class="flex items-center gap-3 text-gray-400 hover:text-arctic-teal transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-arctic-teal flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              9928731910
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/919928731910?text=Hi,%20I%20need%20AC%20service" target="_blank" rel="noopener" class="flex items-center gap-3 text-gray-400 hover:text-cool-green transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 0 0 .913.914l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.34 0-4.508-.798-6.232-2.138l-.435-.34-3.202 1.073 1.073-3.202-.34-.435A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="mailto:vishwakarmaairconinfo@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-arctic-teal transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-arctic-teal flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              vishwakarmaairconinfo@gmail.com
+            </a>
+          </li>
+          <li class="flex items-center gap-3 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-arctic-teal flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Mon–Sat: 8:00 AM – 8:00 PM
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
+      <p>Vishwakarma Aircon</p>
+      <p>&copy; {new Date().getFullYear()} Vishwakarma Aircon. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

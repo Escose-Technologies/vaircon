@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    slug: 'how-to-clean-ac-filter-at-home',
+    title: 'How to Clean Your AC Filter at Home',
+    excerpt: 'A dirty AC filter reduces cooling and increases electricity bills. Learn the simple step-by-step process to clean your AC filter at home in under 15 minutes.',
+    date: 'March 5, 2026',
+  },
+  {
+    slug: 'signs-ac-needs-servicing-before-summer',
+    title: 'Signs Your AC Needs Servicing Before Summer',
+    excerpt: 'Don\'t wait for your AC to break down in peak summer. Watch out for these 7 warning signs that your air conditioner needs professional servicing right away.',
+    date: 'February 20, 2026',
+  },
+  {
+    slug: 'inverter-ac-vs-non-inverter',
+    title: 'Inverter AC vs Non-Inverter — Which Should You Buy?',
+    excerpt: 'Confused between inverter and non-inverter ACs? We break down the differences in cost, electricity consumption, cooling, and long-term value to help you decide.',
+    date: 'February 8, 2026',
+  },
+  {
+    slug: 'ac-installation-cost-jaipur',
+    title: 'How Much Does AC Installation Cost in Jaipur?',
+    excerpt: 'Planning to install a new AC? Here\'s a complete breakdown of AC installation costs in Jaipur — including piping, brackets, electrical work, and labour charges.',
+    date: 'January 25, 2026',
+  },
+];
+---
+
+<BaseLayout
+  title="AC Tips & Blog — Expert Advice | Vishwakarma Aircon Jaipur"
+  description="Read expert AC tips, maintenance guides, and buying advice from Vishwakarma Aircon. Stay cool with our professional insights."
+>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative bg-gradient-to-br from-sky-500 to-cyan-400 pt-28 pb-16 overflow-hidden">
+    <!-- Decorative SVG -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="absolute top-10 left-10 w-24 h-24 text-white" viewBox="0 0 100 100" fill="currentColor">
+        <polygon points="50,5 61,35 95,35 67,57 78,91 50,70 22,91 33,57 5,35 39,35"/>
+      </svg>
+      <svg class="absolute bottom-10 right-16 w-20 h-20 text-white" viewBox="0 0 100 100" fill="currentColor">
+        <polygon points="50,5 61,35 95,35 67,57 78,91 50,70 22,91 33,57 5,35 39,35"/>
+      </svg>
+    </div>
+
+    <!-- Air wave decoration -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 45C840 50 960 50 1080 45C1200 40 1320 30 1380 25L1440 20V80H0Z" fill="#F8FAFC"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <h1 class="font-heading font-extrabold text-4xl md:text-5xl text-white leading-tight mb-4">
+        AC Tips & Blog
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+        Expert advice, maintenance guides, and buying tips from Jaipur's trusted AC professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== BLOG GRID ===== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {articles.map((article) => (
+          <article class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group">
+            <!-- Gradient Placeholder Image -->
+            <div class="h-48 bg-gradient-to-br from-sky-100 via-cyan-50 to-arctic-teal/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-ice-blue/30 group-hover:text-ice-blue/50 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6">
+              <p class="text-sm text-ice-blue font-medium mb-2">{article.date}</p>
+              <h2 class="font-heading font-bold text-xl text-deep-navy mb-3 group-hover:text-ice-blue transition-colors">
+                {article.title}
+              </h2>
+              <p class="text-slate-gray leading-relaxed mb-4">
+                {article.excerpt}
+              </p>
+              <a
+                href={`/blog/${article.slug}`}
+                class="inline-flex items-center gap-2 text-ice-blue font-semibold hover:text-arctic-teal transition-colors"
+              >
+                Read More
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="bg-deep-navy py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Have an AC Question?</h2>
+      <p class="text-gray-300 text-lg mb-8">Our experts are happy to help. Reach out for free advice or a service quote.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-arctic-teal text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-ice-blue transition-colors inline-flex items-center justify-center gap-2"
+        >
+          Contact Us
+        </a>
+        <a
+          href="https://wa.me/919928731910?text=Hi,%20I%20have%20a%20question%20about%20AC%20service"
+          target="_blank"
+          rel="noopener"
+          class="bg-cool-green text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-green-600 transition-colors inline-flex items-center justify-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 0 0 .913.914l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.34 0-4.508-.798-6.232-2.138l-.435-.34-3.202 1.073 1.073-3.202-.34-.435A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

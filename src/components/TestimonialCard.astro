@@ -1,0 +1,24 @@
+---
+export interface Props {
+  name: string;
+  location: string;
+  text: string;
+  rating?: number;
+}
+
+const { name, location, text, rating = 5 } = Astro.props;
+---
+
+<div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+  <!-- Stars -->
+  <div class="flex gap-1 mb-3">
+    {Array.from({ length: rating }).map(() => (
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+    ))}
+  </div>
+  <p class="text-slate-gray italic mb-4 leading-relaxed">"{text}"</p>
+  <div>
+    <p class="font-semibold text-deep-navy">{name}</p>
+    <p class="text-sm text-gray-400">{location}</p>
+  </div>
+</div>

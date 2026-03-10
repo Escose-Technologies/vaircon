@@ -1,0 +1,413 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Vishwakarma Aircon",
+  "telephone": "+919928731910",
+  "email": "vishwakarmaairconinfo@gmail.com",
+  "url": "https://vishwakarmaaircon.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Sa 08:00-20:00",
+  "priceRange": "$",
+  "description": "Professional AC repair, installation, shifting and commercial cooling solutions in Jaipur.",
+  "serviceArea": "Jaipur and surrounding areas",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AC Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Shifting" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial AC Solutions" } }
+    ]
+  }
+};
+
+const services = [
+  {
+    title: 'AC Repair & Maintenance',
+    description: 'Expert diagnosis and repair for all AC brands. Quick turnaround and guaranteed quality work.',
+    href: '/services#repair',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>'
+  },
+  {
+    title: 'New AC Installation',
+    description: 'Professional installation for split, window, and central AC systems. Residential and commercial.',
+    href: '/services#installation',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>'
+  },
+  {
+    title: 'AC Shifting / Relocation',
+    description: 'Safe disassembly, transport, and reinstallation of your AC unit. No damage, no hassle.',
+    href: '/services#shifting',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>'
+  },
+  {
+    title: 'Commercial AC Solutions',
+    description: 'End-to-end cooling for builders, malls, schools, colleges, and housing societies.',
+    href: '/services#commercial',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="15" y2="18"></line></svg>'
+  },
+  {
+    title: 'Annual Maintenance (AMC)',
+    description: 'Regular servicing plans to keep your AC running at peak performance year-round.',
+    href: '/services#amc',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>'
+  },
+  {
+    title: 'Buy & Sell Old AC',
+    description: 'Sell your old AC at best price or buy quality second-hand units with warranty.',
+    href: '/services#buy-sell',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-ice-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>'
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Rajesh Sharma',
+    location: 'Malviya Nagar, Jaipur',
+    text: 'Vishwakarma Aircon repaired my AC within 2 hours of calling. Excellent service and very reasonable pricing. Highly recommended!',
+  },
+  {
+    name: 'Priya Gupta',
+    location: 'Vaishali Nagar, Jaipur',
+    text: 'Got 3 ACs installed in our new home. The team was professional, punctual, and did a flawless job. Will use again for AMC.',
+  },
+  {
+    name: 'Sunil Agarwal',
+    location: 'C-Scheme, Jaipur',
+    text: 'We hired them for our entire office building AC setup. From planning to installation, everything was handled perfectly. Great commercial team!',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How quickly can you respond to a repair call?',
+    answer: 'We offer same-day service in most areas of Jaipur. For urgent repairs, we can usually reach you within 1-2 hours during working hours.',
+  },
+  {
+    question: 'Which AC brands do you service?',
+    answer: 'We service all major brands including Daikin, LG, Samsung, Voltas, Blue Star, Carrier, Hitachi, Haier, Whirlpool, Panasonic, O General, and more.',
+  },
+  {
+    question: 'Do you offer AMC packages?',
+    answer: 'Yes! Our Annual Maintenance Contracts include regular servicing, priority support, and discounts on spare parts. Plans start at affordable rates for residential customers.',
+  },
+  {
+    question: 'How do I sell my old AC to you?',
+    answer: 'Simply call us or WhatsApp a photo of your AC with its model details. We\'ll give you a fair quote and pick it up from your location at no extra charge.',
+  },
+  {
+    question: 'Do you handle large commercial projects?',
+    answer: 'Absolutely. We have 20+ years of experience handling commercial projects for builders, housing societies, malls, schools, and colleges — from planning to full installation.',
+  },
+  {
+    question: 'What areas in Jaipur do you cover?',
+    answer: 'We cover all of Jaipur including Malviya Nagar, Vaishali Nagar, C-Scheme, Mansarovar, Jagatpura, Pratap Nagar, Tonk Road, Ajmer Road, and all surrounding areas.',
+  },
+  {
+    question: 'Do you provide warranty on repairs?',
+    answer: 'Yes, all our repairs come with a service warranty. The warranty period varies depending on the type of repair and parts used. We\'ll inform you at the time of service.',
+  },
+  {
+    question: 'What is the cost of AC installation?',
+    answer: 'Installation costs depend on the AC type (split/window), location, and piping requirements. Contact us for a free quote — we offer competitive pricing with no hidden charges.',
+  },
+];
+
+const serviceAreas = [
+  'Malviya Nagar', 'Vaishali Nagar', 'C-Scheme', 'Mansarovar',
+  'Jagatpura', 'Pratap Nagar', 'Tonk Road', 'Ajmer Road',
+  'Raja Park', 'Sodala', 'Durgapura', 'Sanganer',
+  'Jhotwara', 'Bani Park', 'Adarsh Nagar', 'Vidhyadhar Nagar',
+];
+---
+
+<BaseLayout
+  title="Vishwakarma Aircon — AC Repair & Installation in Jaipur"
+  description="Jaipur's trusted AC experts with 20+ years experience. AC repair, installation, shifting, commercial projects & AMC. All brands serviced. Call 9928731910."
+  jsonLd={jsonLd}
+>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
+    <!-- Background image -->
+    <img
+      src="/images/hero.webp"
+      alt="Professional AC technician servicing an air conditioner"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      width="1200"
+      height="800"
+    />
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-deep-navy/80 to-deep-navy/50"></div>
+
+    <!-- Air wave decoration -->
+    <div class="absolute bottom-0 left-0 right-0 z-10">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 120L60 105C120 90 240 60 360 52.5C480 45 600 60 720 67.5C840 75 960 75 1080 67.5C1200 60 1320 45 1380 37.5L1440 30V120H0Z" fill="#F8FAFC"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+        Your Trusted AC Experts<br />in Jaipur
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Repair, Installation, Shifting & Commercial Projects — All Under One Roof
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-white text-ice-blue px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
+        >
+          Get Free Quote
+        </a>
+        <a
+          href="tel:9928731910"
+          class="bg-deep-navy text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-deep-navy/90 transition-colors shadow-lg flex items-center justify-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES OVERVIEW ===== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">What We Do</h2>
+        <p class="text-slate-gray max-w-2xl mx-auto">Comprehensive AC solutions for homes and businesses across Jaipur. 20+ years of trusted service.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            href={service.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="bg-deep-navy py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-white text-center mb-12">Why Choose Us</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center p-6">
+          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">20+</div>
+          <p class="text-gray-300">Years Experience</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">500+</div>
+          <p class="text-gray-300">Happy Customers</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">All</div>
+          <p class="text-gray-300">Brands Serviced</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">Same</div>
+          <p class="text-gray-300">Day Response</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED SERVICES ===== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
+      <!-- Residential Repair -->
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <!-- Image placeholder -->
+        <div class="bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
+          <!-- Replace with real photo: /images/repair.webp -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">Residential Repair & Servicing</h3>
+          <p class="text-slate-gray mb-4 leading-relaxed">
+            Is your AC not cooling properly, making unusual noises, or leaking water? Our expert technicians diagnose and fix all AC issues quickly and reliably, so your home stays comfortable.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Gas refilling & leak detection
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Compressor & fan motor repair
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Deep cleaning & filter servicing
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              PCB & electrical troubleshooting
+            </li>
+          </ul>
+          <a href="/services#repair" class="inline-flex items-center gap-2 text-ice-blue font-semibold hover:text-arctic-teal transition-colors">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- New AC Installation -->
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="md:order-2">
+          <!-- Replace with real photo: /images/installation.webp -->
+          <div class="bg-gradient-to-br from-cyan-50 to-sky-100 rounded-2xl h-64 md:h-80 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+        </div>
+        <div class="md:order-1">
+          <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">New AC Installation</h3>
+          <p class="text-slate-gray mb-4 leading-relaxed">
+            Whether it's a single room or an entire building, we handle AC installations with precision. We help you choose the right AC for your space and budget, then install it perfectly.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Split, window & cassette AC
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Copper piping & proper drainage
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Electrical wiring & stabilizer setup
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Post-installation testing & demo
+            </li>
+          </ul>
+          <a href="/services#installation" class="inline-flex items-center gap-2 text-ice-blue font-semibold hover:text-arctic-teal transition-colors">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Commercial Projects -->
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
+          <!-- Replace with real photo: /images/commercial.webp -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="15" y2="18"></line></svg>
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">Commercial & Builder Projects</h3>
+          <p class="text-slate-gray mb-4 leading-relaxed">
+            From scratch to full cooling setup — we partner with builders, housing societies, malls, schools, and colleges to deliver large-scale AC solutions on time and within budget.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Centralized & VRF/VRV systems
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Ductable & package units
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Project planning & consultation
+            </li>
+            <li class="flex items-center gap-2 text-slate-gray">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cool-green flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Ongoing maintenance contracts
+            </li>
+          </ul>
+          <a href="/services#commercial" class="inline-flex items-center gap-2 text-ice-blue font-semibold hover:text-arctic-teal transition-colors">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE AREAS ===== -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">We Serve Jaipur & Surrounding Areas</h2>
+      <p class="text-slate-gray mb-8 max-w-2xl mx-auto">Fast, reliable AC services across all major neighborhoods in Jaipur, Rajasthan.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {serviceAreas.map((area) => (
+          <span class="bg-white text-slate-gray px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-gray-100">
+            {area}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="py-16 md:py-24 bg-sky-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <TestimonialCard name={t.name} location={t.location} text={t.text} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <FAQAccordion question={faq.question} answer={faq.answer} id={`faq-${i}`} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA BANNER ===== -->
+  <section class="bg-deep-navy py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Need AC Service Today?</h2>
+      <p class="text-gray-300 text-xl mb-8">We're Just a Call Away</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:9928731910"
+          class="bg-arctic-teal text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-ice-blue transition-colors inline-flex items-center justify-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Call Now
+        </a>
+        <a
+          href="https://wa.me/919928731910?text=Hi,%20I%20need%20AC%20service"
+          target="_blank"
+          rel="noopener"
+          class="bg-cool-green text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-green-600 transition-colors inline-flex items-center justify-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 0 0 .913.914l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.34 0-4.508-.798-6.232-2.138l-.435-.34-3.202 1.073 1.073-3.202-.34-.435A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

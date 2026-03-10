@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href?: string;
+}
+
+const { title, description, icon, href = '/services' } = Astro.props;
+---
+
+<a href={href} class="group block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-ice-blue/30">
+  <div class="w-14 h-14 bg-sky-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-ice-blue/10 transition-colors">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="font-heading font-semibold text-lg text-deep-navy mb-2">{title}</h3>
+  <p class="text-slate-gray text-sm leading-relaxed">{description}</p>
+</a>

@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Our Work Gallery — AC Installations & Projects | Vishwakarma Aircon';
+const description = 'See our AC installation and repair work across Jaipur. Residential, commercial, before & after photos. Quality workmanship by Vishwakarma Aircon.';
+
+const galleryItems = [
+  {
+    id: 1,
+    caption: '1.5 Ton Split AC Installation — Malviya Nagar Residence',
+    category: 'Residential Installation',
+    image: '/images/gallery-1.webp',
+  },
+  {
+    id: 2,
+    caption: 'Central AC Setup — Jaipur Commercial Plaza',
+    category: 'Commercial Project',
+    image: '/images/gallery-2.webp',
+  },
+  {
+    id: 3,
+    caption: 'Before & After — Deep Cleaning of Cassette AC',
+    category: 'Before & After',
+    image: '/images/gallery-3.webp',
+  },
+  {
+    id: 4,
+    caption: 'Refurbished 2 Ton Window AC — Ready for Sale',
+    category: 'Second-hand AC',
+    image: '/images/gallery-4.webp',
+  },
+  {
+    id: 5,
+    caption: 'Multi-Split AC Installation — Vaishali Nagar Villa',
+    category: 'Residential Installation',
+    image: '/images/gallery-5.webp',
+  },
+  {
+    id: 6,
+    caption: 'VRV System Installation — School Campus, Jaipur',
+    category: 'Commercial Project',
+    image: '/images/gallery-6.webp',
+  },
+  {
+    id: 7,
+    caption: 'Before & After — Outdoor Unit Rust Treatment',
+    category: 'Before & After',
+    image: '/images/gallery-7.webp',
+  },
+  {
+    id: 8,
+    caption: 'Quality-Checked Second-hand Split AC — 1 Ton Inverter',
+    category: 'Second-hand AC',
+    image: '/images/gallery-8.webp',
+  },
+];
+
+const categories = ['All', 'Residential', 'Commercial', 'Before & After', 'Second-hand AC'];
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-sky-500 to-cyan-400 pt-28 pb-16 text-center overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-56 h-56 bg-white rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-crisp-white mb-4">
+        Our Work Gallery
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+        Browse our completed AC installations, repairs, and projects across Jaipur. Every project reflects our commitment to quality workmanship.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filter Buttons -->
+  <section class="bg-crisp-white py-8 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-3">
+        {categories.map((cat, index) => (
+          <button
+            type="button"
+            class:list={[
+              'px-5 py-2.5 rounded-full text-sm font-heading font-semibold transition-all duration-300 border-2 cursor-pointer',
+              index === 0
+                ? 'bg-arctic-teal text-crisp-white border-arctic-teal shadow-md'
+                : 'bg-crisp-white text-slate-gray border-gray-200 hover:border-arctic-teal hover:text-arctic-teal',
+            ]}
+            data-filter={cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {galleryItems.map((item) => (
+          <div
+            class="group bg-crisp-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+            data-lightbox={item.caption}
+            data-image={item.image}
+            data-category={item.category}
+            onclick="openLightbox(this)"
+          >
+            <div class="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.caption}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+              <div class="absolute top-3 left-3">
+                <span class="inline-block bg-deep-navy/80 text-crisp-white text-xs font-heading font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                  {item.category}
+                </span>
+              </div>
+              <div class="absolute inset-0 bg-deep-navy/0 group-hover:bg-deep-navy/20 transition-colors duration-300 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-crisp-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm font-body text-slate-gray leading-relaxed">
+                {item.caption}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-crisp-white py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-deep-navy mb-4">
+        Want Similar Results for Your Space?
+      </h2>
+      <p class="text-slate-gray font-body mb-8 max-w-xl mx-auto">
+        Whether it is a home or a commercial property, our experienced team delivers professional AC solutions tailored to your needs.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-cool-green text-crisp-white font-heading font-semibold px-8 py-3.5 rounded-full hover:bg-green-600 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Get a Free Quote
+      </a>
+    </div>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div
+    id="gallery-lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-deep-navy/90 backdrop-blur-sm p-4"
+    onclick="closeLightboxOutside(event)"
+  >
+    <button
+      type="button"
+      class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-crisp-white/10 hover:bg-crisp-white/20 transition-colors duration-300 cursor-pointer"
+      onclick="closeLightbox()"
+      aria-label="Close lightbox"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-crisp-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div id="lightbox-content" class="relative max-w-3xl w-full mx-auto">
+      <img id="lightbox-image" class="w-full rounded-2xl overflow-hidden shadow-2xl object-contain max-h-[80vh]" src="" alt="" />
+      <p id="lightbox-caption" class="text-crisp-white text-center mt-4 font-body text-sm md:text-base"></p>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script is:inline>
+  function openLightbox(el) {
+    var lightbox = document.getElementById('gallery-lightbox');
+    var imageEl = document.getElementById('lightbox-image');
+    var captionEl = document.getElementById('lightbox-caption');
+
+    var caption = el.getAttribute('data-lightbox');
+    var imageSrc = el.getAttribute('data-image');
+
+    imageEl.src = imageSrc;
+    imageEl.alt = caption;
+    captionEl.textContent = caption;
+
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    var lightbox = document.getElementById('gallery-lightbox');
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOutside(event) {
+    if (event.target === document.getElementById('gallery-lightbox')) {
+      closeLightbox();
+    }
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+</script>
