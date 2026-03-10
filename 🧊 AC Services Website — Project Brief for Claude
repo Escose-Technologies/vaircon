@@ -1,0 +1,290 @@
+🧊 AC Services Website — Project Brief for Claude
+Project Overview
+Build a fully static, SEO-optimized, professional website for an air conditioning services business. No backend required. The website should establish a strong online presence, generate leads, and rank on Google for local searches.
+Business Details (Fill in your real info before sending)
+
+Business Name: VISHWAKARMA AIRCON
+Phone: 9928731910
+WhatsApp: 9928731910
+Email: vishwakarmaairconinfo@gmail.com
+City / Service Area: Jaipur/Rajasthan
+Years in Business: 20 Years
+
+
+Services Offered
+
+AC Repair & Maintenance (all brands, all types)
+New AC Installation (residential & commercial)
+AC Shifting / Relocation
+Commercial AC Solutions — working with builders, housing societies, malls, schools, colleges (from scratch to full cooling setup)
+Annual Maintenance Contract (AMC)
+Buy Old / Second-hand AC from customers
+Sell Second-hand AC to customers
+Key USP: Full end-to-end AC solutions — residential to large commercial, no quality compromised.
+
+
+Tech Stack to Use
+
+Framework: Astro (static site generator)
+Styling: Tailwind CSS
+Icons: Lucide Icons or Heroicons (free SVG icon sets)
+Fonts: Google Fonts — Inter for body, Poppins for headings
+Contact Form: Web3Forms (free, no backend, works with static sites — use https://api.web3forms.com/submit)
+Deployment Target: Netlify or Vercel (free tier)
+Image Format: WebP for all images, with loading="lazy" on all images below the fold
+
+
+Color Palette & Theme
+The site must feel cool, icy, clean, and professional — inspired by cold air and refrigeration.
+RoleNameHexPrimary BrandIce Blue#0EA5E9Secondary / CTAArctic Teal#06B6D4Dark AccentDeep Navy#0F172APage BackgroundCrisp White#F8FAFCBody TextSlate Gray#334155Trust/BadgeCool Green#10B981Gradient HeroBlue → Tealfrom-sky-500 to-cyan-400
+
+Full Page Structure
+Page 1: Home (/ or index.astro)
+Section 1 — Hero
+
+Full-width hero with a cool blue gradient background
+Large H1 headline: "Your Trusted AC Experts in [City]"
+Subheadline: "Repair, Installation, Shifting & Commercial Projects — All Under One Roof"
+Two CTA buttons: "Get Free Quote" (links to contact page) and "Call Now" (tel: link)
+A snowflake or air wave SVG decoration or a professional AC image
+Section 2 — Services Overview
+Heading: "What We Do"
+6-card grid with icon, title, short description for each service (Repair, Installation, Shifting, Commercial, AMC, Buy/Sell AC)
+Cards have ice-blue icon, white background, subtle shadow and hover effect
+Section 3 — Why Choose Us
+4 trust stat boxes: "10+ Years Experience", "500+ Happy Customers", "All Brands Serviced", "Same Day Response"
+Dark navy background section with white text and teal accents
+Section 4 — Featured Services (Detailed Spotlight)
+2-column layout (image + text alternating) for 3 key services:
+
+Residential Repair & Servicing
+New AC Installation
+Commercial & Builder Projects
+
+
+Each has a short paragraph, bullet points of what's included, and a "Learn More" button
+Section 5 — Service Areas
+Simple section: "We Serve [City] and Surrounding Areas"
+List of areas/neighborhoods in a pill/badge style
+Section 6 — Testimonials
+3 customer testimonials in card format
+Star rating (5 stars), customer name, location, review text
+Light blue background section
+Section 7 — FAQ Accordion
+6–8 common questions with expand/collapse functionality (pure CSS or minimal JS)
+Sample questions:
+
+How quickly can you respond to a repair call?
+Which AC brands do you service?
+Do you offer AMC packages?
+How do I sell my old AC to you?
+Do you handle large commercial projects?
+What areas do you cover?
+Section 8 — Final CTA Banner
+
+
+Dark navy background
+"Need AC Service Today? We're Just a Call Away"
+Big "Call Now" button and WhatsApp button
+
+
+Page 2: Services (/services)
+Detailed page for each service with its own section anchor:
+
+/services#repair
+/services#installation
+/services#shifting
+/services#commercial
+/services#amc
+/services#buy-sell
+Each service section must include: heading, description (2–3 paragraphs), what's included (bullet list), which type of customers it's for, and a CTA button.
+
+
+Page 3: About (/about)
+
+Company story and background
+"Our Mission" statement
+Team section (placeholder for 2–3 team member cards — name, role, photo placeholder)
+Brands we service (logo placeholders for: Daikin, LG, Samsung, Voltas, Blue Star, Carrier, Hitachi, Haier, Whirlpool, Panasonic, O General)
+Certifications / partnerships if any
+
+
+Page 4: Gallery (/gallery)
+
+Masonry or grid photo gallery layout
+Categories: Residential Installations, Commercial Projects, Before & After, Second-hand AC
+Image placeholder cards with caption — ready for real photos to be swapped in
+Lightbox on click (use a minimal vanilla JS lightbox — no heavy libraries)
+
+
+Page 5: Contact (/contact)
+
+Contact form with fields: Full Name, Phone Number, City/Area, Service Required (dropdown with all 7 services), Message — submitted via Web3Forms
+Contact info block: Phone (click to call), WhatsApp (click to open chat), Email, Working Hours
+Embedded Google Maps iframe placeholder (a commented-out block with instructions to add their embed URL)
+Clear instruction: form posts to Web3Forms API, user must add their access key
+
+
+Page 6: Blog (/blog) — Optional, scaffold only
+
+Blog index page listing 4 placeholder article cards
+One sample article page template (/blog/[slug].astro)
+Suggested article titles:
+
+"How to Clean Your AC Filter at Home"
+"Signs Your AC Needs Servicing Before Summer"
+"Inverter AC vs Non-Inverter — Which Should You Buy?"
+"How Much Does AC Installation Cost in [City]?"
+
+
+
+
+Global Components to Build
+Header / Navbar:
+
+Logo (text-based: business name in Poppins, bold, blue)
+Navigation links: Home, Services, About, Gallery, Contact
+Sticky on scroll (adds shadow and white background on scroll)
+Mobile hamburger menu that works without JS frameworks
+"Call Now" button in navbar (always visible, teal background)
+Footer:
+3-column layout: Brand info + tagline | Quick Links | Contact Info
+WhatsApp, phone, email in footer
+Copyright line
+"All brands serviced" tagline
+WhatsApp Floating Button:
+Fixed position, bottom-right
+Green circle with WhatsApp SVG icon
+Links to https://wa.me/[WHATSAPP_NUMBER]?text=Hi, I need AC service
+Subtle pulse animation to draw attention
+SEO Head Component (SEO.astro):
+Reusable component placed in every page's <head> with:
+<title> — unique per page
+<meta name="description"> — unique per page
+Open Graph tags (og:title, og:description, og:image, og:url)
+Twitter Card tags
+Canonical URL
+Local Business JSON-LD schema (on home page)
+
+
+SEO Requirements
+Every page must have:
+
+Unique, descriptive <title> tag (50–60 characters)
+Unique <meta name="description"> (150–160 characters)
+One <h1> per page, containing the primary keyword
+Proper heading hierarchy (H1 → H2 → H3)
+Alt text on every image
+Internal links between pages
+Local Business JSON-LD Schema (add to home page <head>):
+
+json{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "[BUSINESS NAME]",
+  "telephone": "[PHONE]",
+  "email": "[EMAIL]",
+  "url": "[WEBSITE URL]",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "[CITY]",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Sa 08:00-20:00",
+  "priceRange": "$$",
+  "description": "Professional AC repair, installation, shifting and commercial cooling solutions in [CITY].",
+  "serviceArea": "[CITY] and surrounding areas",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AC Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Repair"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Shifting"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial AC Solutions"}}
+    ]
+  }
+}
+```
+**Astro Sitemap Plugin:** Must be installed and configured so `/sitemap-index.xml` is generated automatically.
+---
+## Performance Requirements
+- Lighthouse score target: 95+ on Performance, 100 on SEO, 100 on Accessibility, 100 on Best Practices
+- All images: WebP format, with `width` and `height` attributes set, `loading="lazy"` on non-hero images
+- Hero image or background: `loading="eager"`, `fetchpriority="high"`
+- No unused CSS (Tailwind purges automatically)
+- No render-blocking scripts
+- Google Fonts loaded with `rel="preconnect"` and `display=swap`
+---
+## File & Folder Structure
+```
+my-ac-website/
+├── public/
+│   ├── images/          ← all images go here
+│   ├── favicon.ico
+│   └── robots.txt
+├── src/
+│   ├── components/
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── SEO.astro
+│   │   ├── WhatsAppButton.astro
+│   │   ├── ServiceCard.astro
+│   │   ├── TestimonialCard.astro
+│   │   └── FAQAccordion.astro
+│   ├── layouts/
+│   │   └── BaseLayout.astro  ← wraps every page with Header + Footer + SEO
+│   ├── pages/
+│   │   ├── index.astro       ← Home
+│   │   ├── services.astro
+│   │   ├── about.astro
+│   │   ├── gallery.astro
+│   │   ├── contact.astro
+│   │   └── blog/
+│   │       ├── index.astro
+│   │       └── [slug].astro
+│   └── styles/
+│       └── global.css        ← Tailwind base + any custom CSS
+├── astro.config.mjs
+├── tailwind.config.mjs
+└── package.json
+
+Setup Commands (Run in Order)
+bash# 1. Create Astro project
+npm create astro@latest my-ac-website
+# Choose: Empty template, TypeScript: No, Install dependencies: Yes
+# 2. Enter project folder
+cd my-ac-website
+# 3. Add Tailwind CSS
+npx astro add tailwind
+# 4. Add Sitemap
+npx astro add sitemap
+# 5. Start dev server
+npm run dev
+
+Important Notes for Claude
+
+Use placeholder text for all business-specific details (name, phone, city) with clear [REPLACE THIS] labels so the owner can fill them in
+Use placeholder images with a comment like <!-- Replace with real photo: /images/hero.webp --> — use a colored div or Tailwind gradient as placeholder backgrounds
+Do not use any paid libraries — everything must be free and open source
+The contact form uses Web3Forms — include a comment explaining the user must sign up at web3forms.com for a free API key and replace YOUR_ACCESS_KEY_HERE
+Write clean, well-commented code — the owner may need to edit content themselves
+Make the site fully mobile-responsive — test all breakpoints (sm, md, lg)
+The WhatsApp button and call button must work on mobile devices
+
+
+Deliverable
+Build the complete static website file by file, starting with:
+
+astro.config.mjs and tailwind.config.mjs (config files)
+BaseLayout.astro (layout wrapper)
+Header.astro and Footer.astro components
+SEO.astro component
+WhatsAppButton.astro
+index.astro (Home page — complete, all sections)
+services.astro
+about.astro
+gallery.astro
+contact.astro
+blog/index.astro
+Write each file completely — no truncation, no "continue as needed." Full production-ready code for each file.
