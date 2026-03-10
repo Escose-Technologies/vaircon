@@ -35,5 +35,22 @@ const { title, description, canonical, ogImage, jsonLd } = Astro.props;
     </main>
     <Footer />
     <WhatsAppButton />
+    <script is:inline>
+      (function () {
+        var animClasses = ['fade-up', 'fade-in', 'slide-left', 'slide-right', 'scale-in', 'count-pop'];
+        var selector = animClasses.map(function (c) { return '.' + c; }).join(',');
+        var elements = document.querySelectorAll(selector);
+        if (!elements.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        elements.forEach(function (el) { observer.observe(el); });
+      })();
+    </script>
   </body>
 </html>

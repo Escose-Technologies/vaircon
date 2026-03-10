@@ -161,13 +161,13 @@ const serviceAreas = [
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+      <h1 class="fade-up font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
         Your Trusted AC Experts<br />in Jaipur
       </h1>
-      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+      <p class="fade-up stagger-1 text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
         Repair, Installation, Shifting & Commercial Projects — All Under One Roof
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="fade-up stagger-2 flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/contact"
           class="bg-white text-ice-blue px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
@@ -189,17 +189,19 @@ const serviceAreas = [
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">What We Do</h2>
-        <p class="text-slate-gray max-w-2xl mx-auto">Comprehensive AC solutions for homes and businesses across Jaipur. 20+ years of trusted service.</p>
+        <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">What We Do</h2>
+        <p class="fade-up stagger-1 text-slate-gray max-w-2xl mx-auto">Comprehensive AC solutions for homes and businesses across Jaipur. 20+ years of trusted service.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-            href={service.href}
-          />
+        {services.map((service, i) => (
+          <div class={`fade-up stagger-${i + 1} service-card-hover`}>
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              href={service.href}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -208,22 +210,22 @@ const serviceAreas = [
   <!-- ===== WHY CHOOSE US ===== -->
   <section class="bg-deep-navy py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading font-bold text-3xl md:text-4xl text-white text-center mb-12">Why Choose Us</h2>
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-white text-center mb-12">Why Choose Us</h2>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="text-center p-6">
-          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">20+</div>
+        <div class="scale-in stagger-1 text-center p-6">
+          <div class="count-pop text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">20+</div>
           <p class="text-gray-300">Years Experience</p>
         </div>
-        <div class="text-center p-6">
-          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">500+</div>
+        <div class="scale-in stagger-2 text-center p-6">
+          <div class="count-pop text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">500+</div>
           <p class="text-gray-300">Happy Customers</p>
         </div>
-        <div class="text-center p-6">
-          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">All</div>
+        <div class="scale-in stagger-3 text-center p-6">
+          <div class="count-pop text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">All</div>
           <p class="text-gray-300">Brands Serviced</p>
         </div>
-        <div class="text-center p-6">
-          <div class="text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">Same</div>
+        <div class="scale-in stagger-4 text-center p-6">
+          <div class="count-pop text-4xl md:text-5xl font-heading font-bold text-arctic-teal mb-2">Same</div>
           <p class="text-gray-300">Day Response</p>
         </div>
       </div>
@@ -236,11 +238,11 @@ const serviceAreas = [
       <!-- Residential Repair -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <!-- Image placeholder -->
-        <div class="bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
+        <div class="slide-left bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
           <!-- Replace with real photo: /images/repair.webp -->
           <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
         </div>
-        <div>
+        <div class="slide-right">
           <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">Residential Repair & Servicing</h3>
           <p class="text-slate-gray mb-4 leading-relaxed">
             Is your AC not cooling properly, making unusual noises, or leaking water? Our expert technicians diagnose and fix all AC issues quickly and reliably, so your home stays comfortable.
@@ -272,13 +274,13 @@ const serviceAreas = [
 
       <!-- New AC Installation -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div class="md:order-2">
+        <div class="slide-right md:order-2">
           <!-- Replace with real photo: /images/installation.webp -->
           <div class="bg-gradient-to-br from-cyan-50 to-sky-100 rounded-2xl h-64 md:h-80 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
           </div>
         </div>
-        <div class="md:order-1">
+        <div class="slide-left md:order-1">
           <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">New AC Installation</h3>
           <p class="text-slate-gray mb-4 leading-relaxed">
             Whether it's a single room or an entire building, we handle AC installations with precision. We help you choose the right AC for your space and budget, then install it perfectly.
@@ -310,11 +312,11 @@ const serviceAreas = [
 
       <!-- Commercial Projects -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div class="bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
+        <div class="slide-left bg-gradient-to-br from-sky-100 to-cyan-50 rounded-2xl h-64 md:h-80 flex items-center justify-center">
           <!-- Replace with real photo: /images/commercial.webp -->
           <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-ice-blue/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="15" y2="18"></line></svg>
         </div>
-        <div>
+        <div class="slide-right">
           <h3 class="font-heading font-bold text-2xl text-deep-navy mb-4">Commercial & Builder Projects</h3>
           <p class="text-slate-gray mb-4 leading-relaxed">
             From scratch to full cooling setup — we partner with builders, housing societies, malls, schools, and colleges to deliver large-scale AC solutions on time and within budget.
@@ -349,11 +351,11 @@ const serviceAreas = [
   <!-- ===== SERVICE AREAS ===== -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">We Serve Jaipur & Surrounding Areas</h2>
-      <p class="text-slate-gray mb-8 max-w-2xl mx-auto">Fast, reliable AC services across all major neighborhoods in Jaipur, Rajasthan.</p>
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">We Serve Jaipur & Surrounding Areas</h2>
+      <p class="fade-up stagger-1 text-slate-gray mb-8 max-w-2xl mx-auto">Fast, reliable AC services across all major neighborhoods in Jaipur, Rajasthan.</p>
       <div class="flex flex-wrap justify-center gap-3">
-        {serviceAreas.map((area) => (
-          <span class="bg-white text-slate-gray px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-gray-100">
+        {serviceAreas.map((area, i) => (
+          <span class={`fade-in stagger-${Math.min(i % 6 + 1, 6)} bg-white text-slate-gray px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-gray-100`}>
             {area}
           </span>
         ))}
@@ -364,10 +366,12 @@ const serviceAreas = [
   <!-- ===== TESTIMONIALS ===== -->
   <section class="py-16 md:py-24 bg-sky-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">What Our Customers Say</h2>
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">What Our Customers Say</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((t) => (
-          <TestimonialCard name={t.name} location={t.location} text={t.text} />
+        {testimonials.map((t, i) => (
+          <div class={`fade-up stagger-${i + 1}`}>
+            <TestimonialCard name={t.name} location={t.location} text={t.text} />
+          </div>
         ))}
       </div>
     </div>
@@ -376,10 +380,12 @@ const serviceAreas = [
   <!-- ===== FAQ ===== -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">Frequently Asked Questions</h2>
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">Frequently Asked Questions</h2>
       <div class="space-y-3">
         {faqs.map((faq, i) => (
-          <FAQAccordion question={faq.question} answer={faq.answer} id={`faq-${i}`} />
+          <div class={`fade-up stagger-${Math.min(i + 1, 6)}`}>
+            <FAQAccordion question={faq.question} answer={faq.answer} id={`faq-${i}`} />
+          </div>
         ))}
       </div>
     </div>
@@ -388,9 +394,9 @@ const serviceAreas = [
   <!-- ===== FINAL CTA BANNER ===== -->
   <section class="bg-deep-navy py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Need AC Service Today?</h2>
-      <p class="text-gray-300 text-xl mb-8">We're Just a Call Away</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-white mb-4">Need AC Service Today?</h2>
+      <p class="fade-up stagger-1 text-gray-300 text-xl mb-8">We're Just a Call Away</p>
+      <div class="fade-up stagger-2 flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="tel:9928731910"
           class="bg-arctic-teal text-white px-8 py-4 rounded-xl font-heading font-bold text-lg hover:bg-ice-blue transition-colors inline-flex items-center justify-center gap-2"
