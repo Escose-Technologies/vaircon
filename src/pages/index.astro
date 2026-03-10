@@ -18,7 +18,13 @@ const jsonLd = {
     "addressCountry": "IN"
   },
   "openingHours": "Mo-Sa 08:00-20:00",
-  "priceRange": "$",
+  "priceRange": "$$",
+  "image": "https://vishwakarmaaircon.com/images/logo.png",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.919944,
+    "longitude": 75.815997
+  },
   "description": "Professional AC repair, installation, shifting and commercial cooling solutions in Jaipur.",
   "serviceArea": "Jaipur and surrounding areas",
   "hasOfferCatalog": {
@@ -131,6 +137,19 @@ const serviceAreas = [
   'Raja Park', 'Sodala', 'Durgapura', 'Sanganer',
   'Jhotwara', 'Bani Park', 'Adarsh Nagar', 'Vidhyadhar Nagar',
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <BaseLayout
@@ -162,7 +181,7 @@ const serviceAreas = [
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
       <h1 class="fade-up font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-        Your Trusted AC Experts<br />in Jaipur
+        AC Repair & Installation Service in Jaipur
       </h1>
       <p class="fade-up stagger-1 text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
         Repair, Installation, Shifting & Commercial Projects — All Under One Roof
@@ -190,7 +209,7 @@ const serviceAreas = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy mb-4">What We Do</h2>
-        <p class="fade-up stagger-1 text-slate-gray max-w-2xl mx-auto">Comprehensive AC solutions for homes and businesses across Jaipur. 20+ years of trusted service.</p>
+        <p class="fade-up stagger-1 text-slate-gray max-w-2xl mx-auto">From AC repair and installation to commercial cooling solutions and AMC — Vishwakarma Aircon delivers the best AC service in Jaipur with 20+ years of trusted expertise.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, i) => (
@@ -235,6 +254,7 @@ const serviceAreas = [
   <!-- ===== FEATURED SERVICES ===== -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
+      <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">Our Expert AC Services in Jaipur</h2>
       <!-- Residential Repair -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <!-- Image placeholder -->
@@ -380,6 +400,7 @@ const serviceAreas = [
   <!-- ===== FAQ ===== -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
       <h2 class="fade-up font-heading font-bold text-3xl md:text-4xl text-deep-navy text-center mb-12">Frequently Asked Questions</h2>
       <div class="space-y-3">
         {faqs.map((faq, i) => (

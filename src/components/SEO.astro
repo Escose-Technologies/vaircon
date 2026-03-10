@@ -15,6 +15,7 @@ const {
   jsonLd,
 } = Astro.props;
 
+const resolvedOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href;
 const siteName = 'Vishwakarma Aircon';
 ---
 
@@ -42,15 +43,21 @@ const siteName = 'Vishwakarma Aircon';
 <meta property="og:url" content={canonical} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={resolvedOgImage} />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_IN" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonical} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image" content={resolvedOgImage} />
+
+<!-- Geo Meta Tags -->
+<meta name="geo.region" content="IN-RJ" />
+<meta name="geo.placename" content="Jaipur" />
+<meta name="geo.position" content="26.919944;75.815997" />
 
 <!-- JSON-LD Structured Data -->
 {jsonLd && (
